@@ -12,3 +12,13 @@ skills:
 - debrief-concept: make a brief introduction of a specific concept
 - engineering-survey-context: make comprehensive survey of a specific category of engineering methods
 - retrieve-information: retrieve core information from materials (paper/tech report/etc.)
+
+# Setup permission
+
+TODO: move to a skill after verification
+
+```
+As for permission settings "/permissions", set for me "Approve for me: Only ask for actions detected as potentially unsafe."
+
+Add a hook to yourself to always ask for permission if your action invovles deletion of files
+```
