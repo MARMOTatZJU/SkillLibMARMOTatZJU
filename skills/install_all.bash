@@ -17,6 +17,12 @@ for skill_dir in "$SKILL_ROOT"/*/; do
     skill_name="$(basename "$skill_dir")"
     link_path="$CODEX_SKILLS/$skill_name"
 
+    # Repair a dangling link occupying this skill name.
+    if [[ -L "$link_path" && ! -e "$link_path" ]]; then
+        rm -- "$link_path"
+        printf 'Removed expired link: %s\n' "$link_path"
+    fi
+
     if [[ -e "$link_path" || -L "$link_path" ]]; then
         printf 'Skipping existing: %s\n' "$link_path"
         continue

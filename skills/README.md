@@ -2,4 +2,13 @@
 
 For skill definition format, please refer to [Skill Specification](https://agentskills.io/specification).
 
-For best practices, please refer to [Skill Best Practioces](https://agentskills.io/skill-creation/best-practices).
+For best practices, please refer to [Skill Best Practices](https://agentskills.io/skill-creation/best-practices).
+
+# TODOs
+
+skills:
+
+- ai-coding-context: setup a context for ai coding with total control of code entropy/complexity
+- debrief-concept: make a brief introduction of a specific concept
+- engineering-survey-context: make comprehensive survey of a specific category of engineering methods
+- retrieve-information: retrieve core information from materials (paper/tech report/etc.)

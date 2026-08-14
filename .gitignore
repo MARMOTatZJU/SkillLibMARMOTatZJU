@@ -1,5 +1,14 @@
 # git-commit message draft
 /m.txt
 
+# codex files
+.codex/
+
 # output assets
 /output/
+
+# prompt draft
+/prompt.txt
+
+# playground for experimentation
+/playground/
