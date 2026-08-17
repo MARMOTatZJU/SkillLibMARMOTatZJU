@@ -102,3 +102,39 @@ No finite catalog covers every domain-specific pattern. Treat the following as t
 | Introduce a pattern in a small, reviewable, behavior-preserving change. | Mix an architectural rewrite with unrelated generated features. |
 | Test observable contracts, variants, state transitions, and failure behavior. | Test class shape or mock internal calls merely to preserve the pattern. |
 | Record the rationale near the decision and reassess it as the system evolves. | Preserve accidental complexity for architectural purity. |
+
+# Code Maintainability and Longevity
+
+Optimize for the next safe change, not only today's successful run. Make the code understandable, testable, extensible, migratable, operable, reversible, and removable without requiring future maintainers to reconstruct hidden intent.
+
+## Shape Stable, Small Boundaries
+
+- **Define contracts before mechanisms at real boundaries:** Specify caller-visible inputs, outputs, errors, side effects, invariants, ownership, and compatibility before implementing a public or independently evolving boundary. Derive interfaces from known consumers; keep local code concrete until substitution or independent evolution justifies an interface type.
+- **Minimize public surface:** Export only what callers need, hide volatile details, and treat every observable behavior as a potential long-term commitment.
+- **Keep modules cohesive and loosely coupled:** Give each module a clear purpose, direct dependencies toward stable policy, prevent dependency cycles, and isolate I/O or framework code from core logic.
+- **Make state and ownership explicit:** Represent invalid states so they are difficult to construct; expose lifecycle, mutability, concurrency, cancellation, transaction, and resource-ownership rules in types and contracts.
+- **Prefer boring, idiomatic code:** Optimize for local reasoning and consistency; add abstraction only after stable repetition or a demonstrated axis of change.
+
+## Build a Change Safety Net
+
+- **Use test-first design where it clarifies behavior:** Apply short red–green–refactor cycles to deterministic rules and regressions; add characterization tests before changing poorly understood legacy code. Treat TDD as a design tool, not a universal ceremony.
+- **Test behavior through supported boundaries:** Cover normal, edge, and failure cases through public contracts so refactoring internals does not rewrite the tests. Avoid assertions about private call sequences or mocks that merely mirror implementation.
+- **Balance the test portfolio:** Keep most checks fast, deterministic, and narrow; add integration and contract tests at real boundaries and only a small set of high-value end-to-end tests.
+- **Turn failures into durable knowledge:** Add a focused regression test for every fixed defect when feasible, and ensure a broken implementation makes the test fail.
+- **Make every change reviewable:** Keep changes small and single-purpose; run formatting, linting, type or static analysis, security checks, and relevant tests in continuous integration. Review AI-generated code and tests with the same standards as human-authored code.
+
+## Preserve Intent at the Point of Need
+
+- **Write for the reader:** Use domain names, simple control flow, short scopes, and explicit dependencies so the code explains what it does without commentary.
+- **Comment why, not what:** Record non-obvious rationale, invariants, trade-offs, external constraints, failure assumptions, and surprising performance or compatibility choices. Simplify unclear code instead of narrating it, and update or delete comments with the code.
+- **Document contracts for users:** Describe purpose, supported usage, errors, side effects, ownership, concurrency guarantees, and concise examples for public APIs; verify documented behavior with tests where practical.
+- **Make TODOs actionable:** Use TODOs only for specific temporary debt, and include a tracked issue or responsible party, the required action, and a removal trigger or date. Prefer `TODO(#1234): Remove the fallback after all clients use schema v3.` over `TODO: fix later`; keep planning detail in the issue tracker.
+- **Record durable decisions:** Capture hard-to-reverse architectural choices, alternatives, trade-offs, and superseding decisions in short version-controlled decision records rather than relying on chat, review history, or memory.
+
+## Sustain Evolution
+
+- **Evolve contracts compatibly:** Prefer additive API and schema changes; deprecate before removal, reserve retired identifiers where required, and provide migration, compatibility-test, and rollback paths for breaking changes.
+- **Control dependencies deliberately:** Add a dependency only when its value exceeds its lifetime cost; use lock files or equivalent reproducibility controls, audit transitive risk, and automate small, tested updates.
+- **Make failures diagnosable:** Return or propagate actionable errors with preserved causes and relevant context; add structured logs, metrics, or traces at system boundaries without leaking secrets. Never silently swallow failures.
+- **Continuously remove carrying cost:** Delete dead code, expired feature flags, stale TODOs, unused abstractions, obsolete compatibility paths, and redundant tests once their removal conditions are met.
+- **Keep the development path executable:** Maintain one documented, automated path to build, test, run, debug, migrate, and release the system so knowledge survives tool, dependency, and maintainer changes.
