@@ -40,3 +40,19 @@ metadata:
   - Make additional litterature survey/online search if necessary.
   - Follow other requirements within through the whole reorganization-and-compression process.
 - Postprocess: output a summary of modifications to the user.
+
+
+## Instructions for Conversation Summary
+
+- Precondition: semantics relevant are included in the user input such as:
+  - "Please summarize the conversation. "
+- Operations:
+  - Go through the whole conversation and make an abstract consisting of a few sentences.
+  - Figure out the main topics covered by this conversation.
+  - Regarding to each covered topic, find the key points emmerging from the conversation.
+  - Gather all relevant information corresponding to each key point based on materials from the conversation.
+  - Based on the aforementioned abstract, main topics, key points, and relevant information, generate a summary of the conversation in a structural and informative manner.
+  - Make a table of contents for this summary and add it to the beginning of the summary.
+- Postprocess: output a summary of the conversation to the user.
+  - If a path is provided, save the summary to the path in a markdown format.
+  - Otherwise, output the summary directly in your response.
