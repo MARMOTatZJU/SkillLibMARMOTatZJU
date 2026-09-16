@@ -8,7 +8,6 @@ For best practices, please refer to [Skill Best Practices](https://agentskills.i
 
 skills:
 
-- research-context: add conversation summary
 - ai-coding-context: setup a context for ai coding with total control of code entropy/complexity
 - debrief-concept: make a brief introduction of a specific concept
 - engineering-survey-context: make comprehensive survey of a specific category of engineering methods
