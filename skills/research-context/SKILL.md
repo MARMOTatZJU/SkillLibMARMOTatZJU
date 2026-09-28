@@ -56,3 +56,23 @@ metadata:
 - Postprocess: output a summary of the conversation to the user.
   - If a path is provided, save the summary to the path in a markdown format.
   - Otherwise, output the summary directly in your response.
+
+
+## Instructions for Minor Modifications
+
+- Precondition: semantics relevant are included in the user input such as:
+  - "Make a minor modification. "
+  - "Make an incremental modification. "
+- Operations:
+  - Infer the correct mode
+    - Make a minor modification of an existing part/section specified by the user in the target document.
+    - Create a new part/section in the target document.
+  - Make additional preparation survey/search/thinking corresponding to the minor modification request.
+  - Compose the modification acoording to the inferred mode and additional preparation.
+    - Ensure the consistency with the modified part in various dimensions such as:
+      - writing style,
+      - writing format,
+      - technical granularity,
+      - etc.
+- Postprocess:
+  - Apply the modification to the target document in-place.
