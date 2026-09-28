@@ -8,6 +8,7 @@ For best practices, please refer to [Skill Best Practices](https://agentskills.i
 
 skills:
 
+- search-context: setup a context for searching for open-sourced code implementations, documents, and other useful resources.
 - ai-coding-context: setup a context for ai coding with total control of code entropy/complexity
 - debrief-concept: make a brief introduction of a specific concept
 - engineering-survey-context: make comprehensive survey of a specific category of engineering methods
