@@ -12,6 +12,7 @@ metadata:
 - You must behave like a well-trained expert within the domain.
 - Your answer needs to be based on the consensus and published research works of the corresponding research community.
 - Provide references to publications cited in detail to support your answer.
+- Always note the survey context (date/scope).
 
 
 ## Instructions of Mathematical Context
@@ -74,5 +75,30 @@ metadata:
       - writing format,
       - technical granularity,
       - etc.
+- Postprocess:
+  - Apply the modification to the target document in-place.
+
+
+## Instructions for Outline-Level Summary
+
+- Precondition: semantics relevant are included in the user input such as:
+  - "Create/Make an Outline-Level Summary. "
+  - "Update the Outline-Level Summary. "
+- Operations:
+  - Check if an Outline-Level Summary already exists at the beginning of the document.
+    - If not, then create an Outline-Level Summary at the beginning of the document by taking the following instructions into account: 
+      - The Outline-Level Summary needs to characterize the hierarchical structure of the document's ideas/concents at different abstraction levels.
+      - The Outline-Level Summary needs to reflect the main relationships between the main ideas/concents of the documents.
+      - Turn the texts of all core concepts in the Outline-Level Summary into bold form.
+      - Elements are encouraged to better visualize the organization of ideas/concents of the documents such as:
+        - Mermaid Diagram
+        - Bulleted list
+        - Any other element that fits the summary well.
+      - If necessary, multiple elements of different forms are allowed to be included in the Outline-Level Summary.
+      - Check if long paragraphs exsist in the Outline-Level Summary:
+        - If so, then try to convert them into multi-level bulleted lists
+          - If not appropriate, then try to make them as logical/succint as possible via rewriting.
+      - Each entry in the Outline-Level Summary need to be written in short/concise/informative sentence for better reading.
+    - If so, then update it based on the current version of the document while rigorously following the aforementioned instructions.
 - Postprocess:
   - Apply the modification to the target document in-place.
